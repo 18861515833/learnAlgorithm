@@ -1,0 +1,2 @@
+# learnAlgorithm
+record the code 
