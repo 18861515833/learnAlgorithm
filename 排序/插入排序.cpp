@@ -22,7 +22,7 @@ void insertSort(T *arr,int n)
 
 int main()
 {
-	int n=10000;//数据大小 
+	int n=100000;//数据大小 
 	int *arr=generateRandomArray<int>(n,1,n);
 	testSort<int>("insertSort",insertSort,arr,n);
 	//回收空间
