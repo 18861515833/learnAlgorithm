@@ -72,6 +72,22 @@ class MaxHeap{
 };
 
 template<typename T>
+void _shiftDown(T arr,int n,int p)
+{
+	if(p*2+1<n)
+	{
+		int j=p*2+1;
+		if(j+1<n&&arr[j+1]>arr[j])
+			j+=1;
+		if(arr[p]<arr[j])
+		{
+			swap(arr[p],arr[j]);
+			_shiftDown(arr,n,j);
+		}
+	}	
+}
+
+template<typename T>
 void heapSort1 (T arr[], int n)
 {
 	MaxHeap<T> mh(n);
@@ -90,13 +106,28 @@ void heapSort2 (T arr[], int n)
 }
 
 
+template<typename T>
+void heapSort3 (T arr[], int n)
+{
+	for(int i=(n-1)/2;i>=0;i--)
+		_shiftDown(arr,n,i);
+	for(int i=n-1;i>0;i--)
+	{
+		swap(arr[0],arr[i]);
+		_shiftDown(arr,i,0);
+	}	
+}
+
+
+
 int main()
 {
 	int n=1000000;
 	int *arr=generateRandomArray<int>(n,1,n);
 	//printArray(arr,n);
-	testSort<int>("heapSort",heapSort1,arr,n);
-	testSort<int>("heapSort",heapSort2,arr,n);
+	testSort<int>("heapSort1",heapSort1,arr,n);
+	testSort<int>("heapSort2",heapSort2,arr,n);
+	testSort<int>("heapSort3",heapSort3,arr,n);
 	//printArray(arr,n);
 	//ªÿ ’ø’º‰
 	delete[] arr; 
