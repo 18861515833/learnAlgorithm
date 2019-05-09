@@ -9,7 +9,7 @@ private:
 public:
 	UnionFind(int n){
 		count=n;
-		id=new int(n);
+		id=new int[n];
 		for(int i=0;i<n;i++)
 			id[i]=i;
 	}	
