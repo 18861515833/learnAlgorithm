@@ -24,7 +24,7 @@ int BinarySearch(int a,int b,T tar,T *data)
 	return -1;		
 } 
 
-
+//这里实现的是第一个等于tar的下标，不是stl中间的lowwer_bound 
 template<typename T>
 int LowwerBound(int a,int b,T tar,T *data)
 {
@@ -58,6 +58,6 @@ int main()
 	int data[5]={2,2,2,2,5};
 	
 	cout<<BinarySearch<int>(0,5,2,data)<<endl;
-	cout<<LowwerBound<int>(0,5,2,data)<<endl;
+	cout<<LowwerBound<int>(0,5,4,data)<<endl;
 	return 0;
 } 
