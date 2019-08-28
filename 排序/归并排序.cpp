@@ -41,11 +41,11 @@ void _mergeSort(T arr[],int l,int r)
 {
 	if(l>=r)
 		return ;
-	int t=l+(r-l)/2;
+	int t=l+(r-l)/2;//使用r-l可以防止整形溢出的问题 
 	//优化点2 数据规模小的时候使用插入排序比较快 
 	_mergeSort(arr,l,t);
 	_mergeSort(arr,t+1,r);
-	if(arr[t]>arr[t+1])//优化点1 
+	if(arr[t]>arr[t+1])//优化点1  
 		merge(arr,l,r);
 }
 

@@ -3,13 +3,21 @@
 void bubbleSort(int *arr,int n)
 {
 	int i,j;
+	//优化  避免已经排序的数组重复进行遍历 
+	bool isSort=true; 
 	for(i=n-1;i>=0;i--)
 	{
+		isSort=true;
 		for(int j=0;j<i;j++)
 		{
 			if(arr[j]>arr[j+1])
+			{
 				swap(arr[j],arr[j+1]);
+				isSort=false;
+			}
 		}
+		if(isSort)
+			break;
 	}
 } 
 
